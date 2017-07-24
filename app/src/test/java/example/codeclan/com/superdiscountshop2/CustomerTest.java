@@ -12,14 +12,22 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     Customer customer;
+    Customer customer2;
 
     @Before
     public void before(){
         customer = new Customer(true);
+        customer2 = new Customer(false);
     }
 
     @Test
     public void hasLoyaltyCard_yes(){
         assertEquals(true, customer.hasLoyaltyCard());
     }
+
+    @Test
+    public void hasLoyaltyCard_no(){
+        assertEquals(false, customer2.hasLoyaltyCard());
+    }
 }
+
