@@ -11,7 +11,6 @@ import static org.junit.Assert.assertEquals;
 
 public class ItemTest {
 
-
     Item item;
 
     @Before
@@ -28,4 +27,6 @@ public class ItemTest {
     public void CanGetPrice() throws Exception {
         assertEquals(5, item.getPrice());
     }
+
+
 }

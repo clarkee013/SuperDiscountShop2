@@ -29,5 +29,7 @@ public class CustomerTest {
     public void hasLoyaltyCard_no(){
         assertEquals(false, customer2.hasLoyaltyCard());
     }
+
+
 }
 

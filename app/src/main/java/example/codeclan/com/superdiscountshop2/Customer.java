@@ -12,11 +12,12 @@ public class Customer {
         this.loyaltyCard = loyaltyCard;
     }
 
-
     public boolean hasLoyaltyCard() {
         if (loyaltyCard){
             return true;
         }
         return false;
     }
+
+
 }
