@@ -1,12 +1,11 @@
-Last Update: Still to look at the BOGOF offer.
 
 # SuperDiscountShop2
-Shopping basket homework 
+Shopping basket task 
 
 
-_____________
-HomeWork Spec
--------------
+___________
+ Task Spec
+-----------
 
 Shopping Basket Code Test
 
