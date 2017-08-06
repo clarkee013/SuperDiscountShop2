@@ -7,11 +7,14 @@ package example.codeclan.com.superdiscountshop2;
 public class Till {
 
     Till till;
-    public double subtotal10PercentApplied;
-    public double basketTotal;
     Basket basket;
-    Item item;
+    private double subtotal10PercentApplied;
+    private double basketTotal;
 
+
+    public Till(){
+        this.basket = new Basket();
+    }
 
     public boolean canHave10PercentDiscount() {
         if (basket.getBasketSubTotal() >= 20) {
@@ -25,35 +28,32 @@ public class Till {
     }
 
 
-//
-//    public double apply10PercentDiscount() {
-//        if (canHave10PercentDiscount()) {
-//            subtotal10PercentApplied = (getBasketSubTotal() - get10PercentDiscountRate());
-//            return subtotal10PercentApplied;
-//        }
-//        return getBasketSubTotal();
-//    }
-//
-//    public boolean canHaveLoyaltyDiscount(Customer customer) {
-//        if (customer.hasLoyaltyCard()) {
-//            return true;
-//        }
-//        return false;
-//    }
-//
-//    public double getLoyaltyDiscountRate() {
-//        return (apply10PercentDiscount() - ((apply10PercentDiscount() / 100)*2));
-//    }
-//
-//    public double applyLoyaltyDiscount(Customer customer){
-//        if(canHaveLoyaltyDiscount(customer)){
-//            basketTotal = (get10PercentDiscountRate()-getLoyaltyDiscountRate());
-//            return basketTotal;
-//        }
-//        return apply10PercentDiscount();
-//    }
 
+    public double apply10PercentDiscount() {
+        if (canHave10PercentDiscount()) {
+            subtotal10PercentApplied = (basket.getBasketSubTotal() - get10PercentDiscountRate());
+            return subtotal10PercentApplied;
+        }
+        return basket.getBasketSubTotal();
+    }
 
+    public boolean canHaveLoyaltyDiscount(Customer customer) {
+        if (customer.hasLoyaltyCard()) {
+            return true;
+        }
+        return false;
+    }
 
+    public double getLoyaltyDiscountRate() {
+        return (apply10PercentDiscount() - ((apply10PercentDiscount() / 100)*2));
+    }
+
+    public double applyLoyaltyDiscount(Customer customer){
+        if(canHaveLoyaltyDiscount(customer)){
+            basketTotal = (get10PercentDiscountRate()-getLoyaltyDiscountRate());
+            return basketTotal;
+        }
+        return apply10PercentDiscount();
+    }
 
 }

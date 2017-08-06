@@ -7,8 +7,9 @@ import java.util.ArrayList;
  */
 
 public class Basket {
-    public ArrayList<Item> items;
-    public double basketSubTotal;
+
+    private ArrayList<Item> items;
+    private double basketSubTotal;
 
 
     public Basket() {
