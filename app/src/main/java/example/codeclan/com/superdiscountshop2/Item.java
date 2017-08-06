@@ -6,8 +6,8 @@ package example.codeclan.com.superdiscountshop2;
 
 public class Item {
 
-    String name;
-    int price;
+    private String name;
+    private int price;
 
     public Item(String name, int price){
         this.name = name;

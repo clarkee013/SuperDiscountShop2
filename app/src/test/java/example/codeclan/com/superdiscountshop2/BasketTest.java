@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 
 public class BasketTest {
 
-
     Basket basket;
     Item item;
     Item item2;
@@ -31,9 +30,8 @@ public class BasketTest {
         this.item3 = new Item("Biscuits", 5);
         this.item4 = new Item("Red Velvet Cake", 5);
         this.item5 = new Item("Leather Chair", 70);
-        this.customer = new Customer(true);
-        this.customer2 = new Customer(false);
     }
+
 
     @Test
     public void canAddItem() {
@@ -84,98 +82,12 @@ public class BasketTest {
     }
 
     @Test
-    public void canGetBasketTotal(){
+    public void canGetBasketSubTotal(){
         basket.addItemToBasket(item);
         basket.addItemToBasket(item2);
         basket.addItemToBasket(item3);
         basket.addItemToBasket(item4);
         assertEquals(30, 30, basket.getBasketSubTotal());
     }
-
-    @Test
-    public void canHave10PercentDiscount_yes(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        assertEquals(true, basket.canHave10PercentDiscount());
-    }
-
-    @Test
-    public void canHave10PercentDiscount_no(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item3);
-        assertEquals(false, basket.canHave10PercentDiscount());
-    }
-
-    @Test
-    public void get10PercentDiscountRate(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        basket.addItemToBasket(item5);
-        assertEquals(90,90, basket.get10PercentDiscountRate());
-    }
-
-    @Test
-    public void canApply10PercentDiscount_yes(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        basket.addItemToBasket(item5);
-        assertEquals(90,90, basket.apply10PercentDiscount());
-    }
-
-    @Test
-    public void canApply10PercentDiscount_no(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        assertEquals(20,20, basket.apply10PercentDiscount());
-    }
-
-    @Test
-    public void canHaveLoyaltyDiscount_yes(){
-        assertEquals(true, basket.canHaveLoyaltyDiscount(customer));
-    }
-
-    @Test
-    public void canHaveLoyaltyDiscount_no(){
-        assertEquals(false, basket.canHaveLoyaltyDiscount(customer2));
-    }
-
-    @Test
-    public void getLoyaltyDiscountRate(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        basket.addItemToBasket(item5);
-        assertEquals(98,98,basket.getLoyaltyDiscountRate());
-    }
-
-    @Test
-    public void canApplyLoyaltyDiscount_yes(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        basket.addItemToBasket(item5);
-        assertEquals(98, 98, basket.applyLoyaltyDiscount(customer));
-    }
-
-    @Test
-    public void canApplyLoyaltyDiscount_no(){
-        basket.addItemToBasket(item);
-        basket.addItemToBasket(item2);
-        basket.addItemToBasket(item3);
-        basket.addItemToBasket(item4);
-        basket.addItemToBasket(item5);
-        assertEquals(100, 100, basket.applyLoyaltyDiscount(customer2));
-    }
-
-
-
 
 }
